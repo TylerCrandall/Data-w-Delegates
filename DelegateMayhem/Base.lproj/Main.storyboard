@@ -1,24 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ReceivingVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ReceivingVC" customModule="DelegateMayhem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0D-Vi-5JK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rh3-rT-OGp"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="ReceivingVC" id="kU3-pT-0NS">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Csa-ap-7Hv">
+                                            <connections>
+                                                <segue destination="vfs-EV-CRp" kind="show" identifier="showSendingVC" id="2sD-Sa-Atc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap the '+' button to add and sent text using delegates!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDe-xc-AeP">
+                                <rect key="frame" x="16" y="265" width="343" height="66"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TDe-xc-AeP" firstAttribute="top" secondItem="O0D-Vi-5JK" secondAttribute="bottom" constant="20" id="31E-Gv-1pg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TDe-xc-AeP" secondAttribute="bottom" constant="20" id="HFl-WU-5IV"/>
+                            <constraint firstItem="O0D-Vi-5JK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="J0j-NN-Ubq"/>
+                            <constraint firstItem="TDe-xc-AeP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YNR-dc-s6m"/>
+                            <constraint firstItem="O0D-Vi-5JK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="b7j-J1-fld"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TDe-xc-AeP" secondAttribute="trailing" constant="16" id="hiS-nY-329"/>
+                            <constraint firstItem="O0D-Vi-5JK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jPv-Hk-iC5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="lblReceive" destination="TDe-xc-AeP" id="Sja-ge-SnY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
+        </scene>
+        <!--SendingVC-->
+        <scene sceneID="PTB-W8-gUL">
+            <objects>
+                <viewController id="vfs-EV-CRp" customClass="SendingVC" customModule="DelegateMayhem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pDO-fQ-JqT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to enter some text!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="af7-2f-P3t">
+                                <rect key="frame" x="16" y="70" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="dtt-KR-C20"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TS-B8-YgK">
+                                <rect key="frame" x="16" y="162" width="343" height="60"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.39215686274509803" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ezV-cX-3S0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
+                                <state key="normal" title="SEND">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendBtnWasPressed:" destination="vfs-EV-CRp" eventType="touchUpInside" id="rWi-qb-xeb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6TS-B8-YgK" firstAttribute="top" secondItem="af7-2f-P3t" secondAttribute="bottom" constant="30" id="5Ce-jw-QXH"/>
+                            <constraint firstItem="af7-2f-P3t" firstAttribute="top" secondItem="PUp-47-qXw" secondAttribute="top" constant="50" id="5Mh-0g-0BK"/>
+                            <constraint firstItem="af7-2f-P3t" firstAttribute="leading" secondItem="PUp-47-qXw" secondAttribute="leading" constant="16" id="SdR-Y2-bEk"/>
+                            <constraint firstItem="PUp-47-qXw" firstAttribute="trailing" secondItem="6TS-B8-YgK" secondAttribute="trailing" constant="16" id="gWL-g5-gxp"/>
+                            <constraint firstItem="6TS-B8-YgK" firstAttribute="leading" secondItem="PUp-47-qXw" secondAttribute="leading" constant="16" id="n6F-no-LoY"/>
+                            <constraint firstItem="PUp-47-qXw" firstAttribute="trailing" secondItem="af7-2f-P3t" secondAttribute="trailing" constant="16" id="um9-Xt-fLq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PUp-47-qXw"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtSendMe" destination="af7-2f-P3t" id="La2-jD-iJn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PHT-XT-9UZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752.79999999999995" y="32.833583208395808"/>
         </scene>
     </scenes>
 </document>
